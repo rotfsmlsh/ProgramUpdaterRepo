@@ -5,8 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProgramUpdateTracker"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Program Update Tracker" Height="472" Width="584" MinWidth="584" MinHeight="472" MaxWidth="584" MaxHeight="472" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid Margin="0,0,2,0">
+        <Grid x:Name="grid_trackedPrograms" Margin="10,50,325,34">
+            <ListBox x:Name="lstBox_trackedPrograms" HorizontalAlignment="Left" Height="305" Margin="0,30,0,0" VerticalAlignment="Top" Width="231" SelectionChanged="lstBox_trackedPrograms_SelectionChanged"/>
+            <Label x:Name="lbl_trackedPrograms" Content="Tracked Programs:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="205" FontSize="16" FontWeight="Bold"/>
+        </Grid>
+        <Grid x:Name="grid_selectedProgramInfo" Margin="249,50,16,171">
+            <Label x:Name="lbl_selectedProgram" Content="Selected Program:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="205" FontSize="16" FontWeight="Bold"/>
+            <Label x:Name="lbl_programName" Content="Name:" HorizontalAlignment="Left" Margin="25,30,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lbl_programPublisher" Content="Publisher:" HorizontalAlignment="Left" Margin="25,60,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lbl_programCurrentVersion" Content="Current Version:" HorizontalAlignment="Left" Margin="25,120,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lbl_programURL" Content="URL:" HorizontalAlignment="Left" Margin="25,180,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lbl_programAvailableVersion" Content="New Version:" HorizontalAlignment="Left" Margin="25,150,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lbl_programInstallDate" Content="Install Date:" HorizontalAlignment="Left" Margin="25,90,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txt_programName" HorizontalAlignment="Left" Height="20" Margin="125,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" IsReadOnly="True"/>
+            <TextBox x:Name="txt_programPublisher" HorizontalAlignment="Left" Height="20" Margin="125,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" IsReadOnly="True"/>
+            <TextBox x:Name="txt_programCurrentVersion" HorizontalAlignment="Left" Height="20" Margin="125,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" IsReadOnly="True"/>
+            <TextBox x:Name="txt_programAvailableVersion" HorizontalAlignment="Left" Height="20" Margin="125,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" IsReadOnly="True"/>
+            <TextBox x:Name="txt_programURL" HorizontalAlignment="Left" Height="20" Margin="125,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" IsReadOnly="True"/>
+            <TextBox x:Name="txt_programInstallDate" HorizontalAlignment="Left" Height="20" Margin="125,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" IsReadOnly="True"/>
+        </Grid>
+        <Button x:Name="btn_addPrograms" Content="Add Programs..." HorizontalAlignment="Left" Margin="145,389,0,0" VerticalAlignment="Top" Width="95" Click="btn_addPrograms_Click"/>
+
     </Grid>
 </Window>

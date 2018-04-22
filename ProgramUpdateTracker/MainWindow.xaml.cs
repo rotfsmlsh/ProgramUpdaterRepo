@@ -1,25 +1,54 @@
-﻿using System;
+﻿using ProgramUpdateTracker.src;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ProgramUpdateTracker {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window {
+        ProgramList pl;
+        Dictionary<string, ProgramObject> listedPrograms;
+
         public MainWindow() {
-            InitializeComponent();
+            this.InitializeComponent();
+            pl = new ProgramList();
+            refreshProgramList(pl);
+        }
+
+        private void refreshProgramList(ProgramList list) {
+            listedPrograms = list.getTrackedProgramObjects();
+
+            foreach(KeyValuePair<string, ProgramObject> pair in listedPrograms) {
+                if(!lstBox_trackedPrograms.Items.Contains(pair.Key)) {
+                    lstBox_trackedPrograms.Items.Add(pair.Value.getProgramName());
+                }
+            }
+        }
+
+        private void updateTextFields(ProgramObject po) {
+            txt_programName.Text = po.getProgramName();
+            txt_programCurrentVersion.Text = po.getProgramVersion();
+            txt_programInstallDate.Text = po.getInstallDate();
+            txt_programPublisher.Text = po.getPublisher();
+        }
+
+        private void lstBox_trackedPrograms_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            ListBox box = (ListBox) sender;
+            updateTextFields(listedPrograms[box.SelectedItem.ToString()]);
+        }
+
+        private void btn_addPrograms_Click(object sender, RoutedEventArgs e) {
+            AddNewPrograms anp = new AddNewPrograms();
+            anp.ShowDialog();
+            addProgramsToTrackedList(anp.programs);
+            anp.Close();
+        }
+
+        public void addProgramsToTrackedList(List<ProgramObject> programObjects) {
+            pl.addItemsToTracked(programObjects);
+            refreshProgramList(pl);
         }
     }
 }

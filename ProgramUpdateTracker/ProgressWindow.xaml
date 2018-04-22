@@ -1,0 +1,14 @@
+﻿<Window x:Class="ProgramUpdateTracker.ProgressWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProgramUpdateTracker"
+        mc:Ignorable="d"
+        Title="Scanning For Software" Height="90" Width="339" WindowStartupLocation="CenterScreen" Topmost="True" ResizeMode="NoResize" WindowStyle="None" Cursor="Wait">
+    <Grid Background="#FFBFBFBF">
+        <ProgressBar x:Name="prog_scanProgress" HorizontalAlignment="Left" Height="25" Margin="20,45,0,0" VerticalAlignment="Top" Width="296" IsIndeterminate="True" IsTabStop="False" Foreground="#FF06A1B0"/>
+        <Label x:Name="lbl_scanning" Content="Scanning for software..." HorizontalAlignment="Left" Margin="20,14,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
