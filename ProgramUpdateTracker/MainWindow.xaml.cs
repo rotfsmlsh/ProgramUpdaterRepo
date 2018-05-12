@@ -22,16 +22,16 @@ namespace ProgramUpdateTracker {
 
             foreach(KeyValuePair<string, ProgramObject> pair in listedPrograms) {
                 if(!lstBox_trackedPrograms.Items.Contains(pair.Key)) {
-                    lstBox_trackedPrograms.Items.Add(pair.Value.getProgramName());
+                    lstBox_trackedPrograms.Items.Add(pair.Value.programName);
                 }
             }
         }
 
         private void updateTextFields(ProgramObject po) {
-            txt_programName.Text = po.getProgramName();
-            txt_programCurrentVersion.Text = po.getProgramVersion();
-            txt_programInstallDate.Text = po.getInstallDate();
-            txt_programPublisher.Text = po.getPublisher();
+            txt_programName.Text = po.programName;
+            txt_programCurrentVersion.Text = (po.programVersion == "null") ? "Unknown" : po.programVersion;
+            txt_programInstallDate.Text = (po.installDate == "null") ? "Unknown" : po.installDate;
+            txt_programPublisher.Text = (po.publisher == "null") ? "Unknown" : po.publisher;
         }
 
         private void lstBox_trackedPrograms_SelectionChanged(object sender, SelectionChangedEventArgs e) {
@@ -49,6 +49,10 @@ namespace ProgramUpdateTracker {
         public void addProgramsToTrackedList(List<ProgramObject> programObjects) {
             pl.addItemsToTracked(programObjects);
             refreshProgramList(pl);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e) {
+            pl.createXMLFile();
         }
     }
 }

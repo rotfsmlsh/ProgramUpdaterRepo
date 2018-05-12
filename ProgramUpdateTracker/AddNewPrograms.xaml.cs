@@ -61,8 +61,8 @@ namespace ProgramUpdateTracker {
                     if(pso != null) {
                         ProgramObject po = createProgramObject(pso, properties);
                         if(po != null) {
-                            if(!allPrograms.ContainsKey(po.getProgramName())) {
-                                allPrograms.Add(po.getProgramName(), po);
+                            if(!allPrograms.ContainsKey(po.programName)) {
+                                allPrograms.Add(po.programName, po);
                             }
                         }
                     }

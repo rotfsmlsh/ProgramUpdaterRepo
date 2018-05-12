@@ -23,10 +23,11 @@
             <TextBox x:Name="txt_programPublisher" HorizontalAlignment="Left" Height="20" Margin="125,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" IsReadOnly="True"/>
             <TextBox x:Name="txt_programCurrentVersion" HorizontalAlignment="Left" Height="20" Margin="125,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" IsReadOnly="True"/>
             <TextBox x:Name="txt_programAvailableVersion" HorizontalAlignment="Left" Height="20" Margin="125,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" IsReadOnly="True"/>
-            <TextBox x:Name="txt_programURL" HorizontalAlignment="Left" Height="20" Margin="125,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" IsReadOnly="True"/>
+            <TextBox x:Name="txt_programURL" HorizontalAlignment="Left" Height="20" Margin="125,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" />
             <TextBox x:Name="txt_programInstallDate" HorizontalAlignment="Left" Height="20" Margin="125,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" IsReadOnly="True"/>
         </Grid>
         <Button x:Name="btn_addPrograms" Content="Add Programs..." HorizontalAlignment="Left" Margin="145,389,0,0" VerticalAlignment="Top" Width="95" Click="btn_addPrograms_Click"/>
+        <Button x:Name="btn_saveToXML" Content="Save to XML" HorizontalAlignment="Left" Margin="10,389,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
 
     </Grid>
 </Window>
